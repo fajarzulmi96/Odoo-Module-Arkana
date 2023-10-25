@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="training_class_view_tree_inherit" model="ir.ui.view">
+        <field name="name">training.class.view.tree</field>
+        <field name="model">training.class</field>
+        <field name="inherit_id" ref="training_arkana_day3.training_class_view_tree" />
+        <field name="arch" type="xml">
+            <field name="price" position="after">
+                <field name="max_pertemuan" />
+            </field>
+        </field>
+    </record>
+
+    <record id="training_class_view_form_inherit" model="ir.ui.view">
+        <field name="name">training.class.view.form</field>
+        <field name="model">training.class</field>
+        <field name="inherit_id" ref="training_arkana_day3.training_class_view_form" />
+        <field name="arch" type="xml">
+            <field name="max_duration" position="before">
+                <field name="max_pertemuan" />
+            </field>
+            <field name="state" position="before">
+                <button string="Confirm" name="action_state_confirm" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
